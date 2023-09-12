@@ -20,15 +20,18 @@ namespace DataGridWithTwoRowsHeader
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            this.dataGridView1.Columns.Add("JanWin", "Win111");
+            var nameColumn = new DataGridViewTextBoxColumn() { HeaderText = "Some header", Name = "UserName", DataPropertyName = "Name" };
+            this.dataGridView1.Columns.Add(nameColumn);
+
+            this.dataGridView1.Columns.Add("JanWin", "Col Win111");
             this.dataGridView1.Columns.Add("FebWin", "Win22");
             this.dataGridView1.Columns.Add("MarWin", "Win");
             this.dataGridView1.Columns.Add("AprWin", "Win");
-            this.dataGridView1.Columns.Add("MayWin", "Win");
+            this.dataGridView1.Columns.Add("MayWin", "Win 5555");
 
             for (int j = 0; j < this.dataGridView1.ColumnCount; j++)
             {
-                this.dataGridView1.Columns[j].Width = 120;
+                this.dataGridView1.Columns[j].Width = 200;
             }
 
             this.dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
@@ -56,9 +59,9 @@ namespace DataGridWithTwoRowsHeader
 
         void dataGridView1_Paint(object sender, PaintEventArgs e)
         {
-            string[] monthes = { "January", "February", "March", "April", "May" };
+            string[] monthes = { "User Name", "January", "February", "March", "April", "May" };
 
-            for (int j = 0; j < 5;)
+            for (int j = 0; j < monthes.Count();)
             {
                 Rectangle r1 = this.dataGridView1.GetCellDisplayRectangle(j, -1, true);
                 int w2 = this.dataGridView1.GetCellDisplayRectangle(j, -1, true).Width;
