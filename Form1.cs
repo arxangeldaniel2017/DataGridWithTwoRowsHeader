@@ -21,12 +21,12 @@ namespace DataGridWithTwoRowsHeader
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            this.dataGridView1.Columns.Add("JanWin", "Col Win111");
+            this.dataGridView1.Columns.Add("JanWin", "Column header");
             this.dataGridView1.Columns.Add("FebWin", "Win22");
             this.dataGridView1.Columns.Add("MarWin", "Win");
             this.dataGridView1.Columns.Add("AprWin", "Win");
 
-            var nameColumn = new DataGridViewTextBoxColumn() { HeaderText = "Some header", Name = "UserName", DataPropertyName = "Name" };
+            var nameColumn = new DataGridViewTextBoxColumn() { HeaderText = "User Full Name", Name = "UserName", DataPropertyName = "Name" };
             this.dataGridView1.Columns.Add(nameColumn);
 
             for (int j = 0; j < this.dataGridView1.ColumnCount; j++)
@@ -59,7 +59,7 @@ namespace DataGridWithTwoRowsHeader
 
         void dataGridView1_Paint(object sender, PaintEventArgs e)
         {
-            string[] monthes = {  "January", "February", "March", "April", "User Name" };
+            string[] monthes = {  "January", "February", "March", "April", "User" };
 
             for (int j = 0; j < monthes.Count();)
             {
