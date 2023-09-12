@@ -3,6 +3,7 @@ namespace DataGridWithTwoRowsHeader
     public partial class Form1 : Form
     {
         private int[] daysInMonths;
+        private const int COLUMN_WIDTH = 180;
 
         public Form1()
         {
@@ -20,18 +21,17 @@ namespace DataGridWithTwoRowsHeader
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            var nameColumn = new DataGridViewTextBoxColumn() { HeaderText = "Some header", Name = "UserName", DataPropertyName = "Name" };
-            this.dataGridView1.Columns.Add(nameColumn);
-
             this.dataGridView1.Columns.Add("JanWin", "Col Win111");
             this.dataGridView1.Columns.Add("FebWin", "Win22");
             this.dataGridView1.Columns.Add("MarWin", "Win");
             this.dataGridView1.Columns.Add("AprWin", "Win");
-            this.dataGridView1.Columns.Add("MayWin", "Win 5555");
+
+            var nameColumn = new DataGridViewTextBoxColumn() { HeaderText = "Some header", Name = "UserName", DataPropertyName = "Name" };
+            this.dataGridView1.Columns.Add(nameColumn);
 
             for (int j = 0; j < this.dataGridView1.ColumnCount; j++)
             {
-                this.dataGridView1.Columns[j].Width = 200;
+                this.dataGridView1.Columns[j].Width = COLUMN_WIDTH;
             }
 
             this.dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
@@ -59,7 +59,7 @@ namespace DataGridWithTwoRowsHeader
 
         void dataGridView1_Paint(object sender, PaintEventArgs e)
         {
-            string[] monthes = { "User Name", "January", "February", "March", "April", "May" };
+            string[] monthes = {  "January", "February", "March", "April", "User Name" };
 
             for (int j = 0; j < monthes.Count();)
             {
